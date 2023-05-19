@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Sidebar -->
+            <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+                <div class="position-sticky">
+                    <div class="list-group list-group-flush mx-3 mt-4">
+                        <a routerLink="/admin-homepage" class="list-group-item list-group-item-action py-2 ripple"
+                            aria-current="true">
+                            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+                        </a>
+                        <a routerLink="/add-product" class="list-group-item list-group-item-action py-2 ripple">
+                            <i class="fas fa-chart-area fa-fw me-3"></i><span>Add Product</span>
+                        </a>
+                        <a routerLink="/admin-show-customers"
+                            class="list-group-item list-group-item-action py-2 ripple"><i
+                                class="fas fa-lock fa-fw me-3"></i><span>customers</span></a>
+                        <a routerLink="/admin-show-orders" class="list-group-item list-group-item-action py-2 ripple"><i
+                                class="fas fa-chart-line fa-fw me-3"></i><span>Orders</span></a>
+
+                        <a routerLink="/admin-product-category"
+                            class="list-group-item list-group-item-action py-2 ripple"><i
+                                class="fas fa-chart-bar fa-fw me-3"></i><span>Product Category</span></a>
+                        <a routerLink="/admin-dashboard" class="list-group-item list-group-item-action py-2 ripple"><i
+                                class="fas fa-globe fa-fw me-3"></i><span>Display Products</span></a>
+                        <li class="nav-item menus float-right list-group-item list-group-item-action py-2 ripple menus">
+                            <a class="nav-link active" type="button" (click)="logout()"><b>Logout</b></a>
+                        </li>
+
+                    </div>
+                </div>
+            </nav>
+        
+        </div>
+    </div>
+</div>

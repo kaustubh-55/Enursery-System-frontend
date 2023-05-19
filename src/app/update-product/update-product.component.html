@@ -1,0 +1,105 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <h1>Update Product</h1>
+      <form
+        #updateProductForm="ngForm"
+        (ngSubmit)="onSubmit(updateProductForm.value)"
+      >
+        <div>
+          <input type="hidden" id="productId" name="productId" [(ngModel)]="productId">
+          <b><label for="productName" class="font-weight-bold">Product Name</label></b>
+          <input
+            class="form-control"
+            id="productName"
+            type="text"
+            [(ngModel)]="productName"
+            name="productName"
+            required
+          />
+        </div>
+        <div>
+          <b
+            ><label for="productDescription" class="font-weight-bold"
+              >Product Description</label
+            ></b
+          >
+          <textarea
+            class="form-control"
+            id="productDescription"
+            [(ngModel)]="productDescription"
+            name="productDescription"
+            required
+          ></textarea>
+        </div>
+        <div>
+          <b
+            ><label for="productPrice" class="font-weight-bold"
+              >Product Price</label
+            ></b
+          >
+          <input
+            class="form-control"
+            id="productPrice"
+            type="number"
+            [(ngModel)]="productPrice"
+            name="productPrice"
+            step="0.01"
+            required
+          />
+        </div>
+        <div>
+          <b
+            ><label for="productImg" class="font-weight-bold"
+              >Product Image</label
+            ></b
+          >
+          <input
+            class="form-control"
+            id="productImg"
+            type="file"
+            (change)="onImageChange($event)"
+            name="productImg"
+          />
+        </div>
+        <div>
+          <b
+            ><label for="productQuantity" class="font-weight-bold"
+              >Product Quantity</label
+            ></b
+          >
+          <input
+            class="form-control"
+            id="productQuantity"
+            type="number"
+            [(ngModel)]="productQuantity"
+            name="productQuantity"
+            required
+          />
+        </div>
+        <div>
+          <b>
+            <label for="productCategory" class="font-weight-bold"
+              >Product Category</label
+            ></b
+          >
+          <select
+            class="form-control"
+            id="productCategory"
+            [(ngModel)]="productCategoryId"
+            name="productCategoryId"
+            required
+          >
+            <option *ngFor="let category of category1" [value]="category.productCategoryId">
+              {{ category.productCategoryName }}
+            </option>
+          </select>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-sm btn-success">
+          Update Product
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

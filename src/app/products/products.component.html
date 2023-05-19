@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-sm-6">
+      <app-search-product (searchEvent)="onSearch($event)"></app-search-product>
+    </div>
+    <div class="col-sm-6">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Select Category</label
+      >
+      <select
+        class="form-select"
+        aria-label="Select Category"
+        name="filterValue"
+        [(ngModel)]="selectedFilterValue"
+        (change)="filterProduct()"
+      >
+        <option selected="true">Select Category</option>
+        <option 
+              *ngFor="let category of category1"
+              [value]="category.productCategoryId"
+            >
+              {{ category.productCategoryName }}
+            </option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="products.length > 0; else elseBlock">
+  <div class="container mt-2">
+    <div class="products">
+      <div class="product_row">
+        <div class="product" *ngFor="let p of products">
+          <div class="product_img">
+            <a [routerLink]="['/products', p.productId]">
+              <img src="{{ p.productImg }}" alt="product image" />
+            </a>
+          </div>
+          <span>
+            {{ p.productName }}
+          </span>
+          <h4 class="product_price">
+            {{ p.productPrice | currency : "INR" }}
+          </h4>
+          <button class="cart_btn" (click)="addToCart(p)">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <h3 class="text-center text-danger">No products Found</h3>
+</ng-template>
+<app-footer></app-footer>

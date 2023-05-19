@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <table class="table table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Quantity</th>
+                <th>Product Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let p of cartProducts">
+                <td>{{p.productName}}</td>
+                <td>{{p.productQuantity}}</td>
+                <td>{{p.productPrice}}</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="2"><b>Total: </b></td>
+                <td class="text-success"><b>{{calculateTotal()}}</b></td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+    <div class="container mt-4">
+
+        <div class="col-sm-6">
+            <h6>Select Payment Mode</h6>
+            <select class="form-select" name="paymentMode" [(ngModel)]="paymentMode">
+               <option value="COD" selected>Cash on delivery</option>
+                <option value="Online Payment">Online Payment</option> 
+            </select>
+        </div>
+
+
+        <br>
+        <ng-container *ngIf="paymentMode === 'Online Payment'">
+            <app-payment-getway [totalAmount]="totalBill" [customerId]="customerId"></app-payment-getway>
+        </ng-container>
+
+        <button *ngIf="paymentMode !== 'Online Payment'" (click)="placeOrder()" class="btn btn-success">Place
+            Order</button>
+    </div>
+</div>

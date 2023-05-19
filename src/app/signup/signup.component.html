@@ -1,0 +1,89 @@
+
+<nav
+  class="navbar navbar-dark navbar-expand-lg"
+  style="background-color: #007f00"
+>
+  <div class="container-fluid">
+    <h2>
+      <a routerLink="/">
+        <span style="color: white" class="p-1">E-</span
+        ><span class="text-warning">Nursery</span>
+      </a>
+    </h2>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item menus login">
+        <a class="nav-link active" routerLink="/login">Login</a>
+      </li>
+    </ul>
+   
+  </div>
+</nav>
+
+
+<div class="signupDiv">
+  <div class="signupForm">
+    <form #signupForm="ngForm" (ngSubmit)="onSignup(signupForm.value)" novalidate>
+      <h1>Signup</h1>
+
+      <input type="text" placeholder="Username" name="customerName" required ngModel #customerName="ngModel"
+        pattern="[a-zA-Z\s]+" minlength="4" maxlength="50" />
+      <div *ngIf="customerName.invalid && (customerName.dirty || customerName.touched)">
+        <div *ngIf="customerName.errors?.['required']" style="color: red;">Username is required.</div>
+        <div *ngIf="customerName.errors?.['pattern']" style="color: red;">Username should contain only alphabets.</div>
+        <div *ngIf="customerName.errors?.['minlength']" style="color: red;">Username should be at least 4 characters long.</div>
+        <div *ngIf="customerName.errors?.['maxlength']" style="color: red;">Username cannot be more than 50 characters long.</div>
+      </div>
+
+      <input type="email" placeholder="Email" name="customerEmail" required ngModel #customerEmail="ngModel"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
+      <div *ngIf="customerEmail.invalid && (customerEmail.dirty || customerEmail.touched)">
+        <div *ngIf="customerEmail.errors?.['required']" style="color: red;">Email is required.</div>
+        <div *ngIf="customerEmail.errors?.['pattern']" style="color: red;">Please enter a valid email.</div>
+      </div>
+
+      <input type="text" placeholder="Phone number" name="customerPhone" required ngModel #customerPhone="ngModel"
+        pattern="[7-9][0-9]{9}" minlength="10" maxlength="10" />
+      <div *ngIf="customerPhone.invalid && (customerPhone.dirty || customerPhone.touched)">
+        <div *ngIf="customerPhone.errors?.['required']" style="color: red;">phoneNumber is required.</div>
+        <div *ngIf="customerPhone.errors?.['pattern']" style="color: red;">phoneNumber should contain numeric characters and starts with
+          7,8,9.</div>
+        <div *ngIf="customerPhone.errors?.['minlength']" style="color: red;">phoneNumber should be a 10 digit long.</div>
+        <div *ngIf="customerPhone.errors?.['maxlength']" style="color: red;">phoneNumber should be a 10 digit long..</div>
+      </div>
+
+      <textarea name="customerAddress" placeholder="customerAddress" required ngModel #customerAddress="ngModel"
+        minlength="5" maxlength="50"></textarea>
+      <div *ngIf="customerAddress.invalid && (customerAddress.dirty || customerAddress.touched)">
+        <div *ngIf="customerAddress.errors?.['required']" style="color: red;">Address is required.</div>
+        <div *ngIf="customerAddress.errors?.['minlength']" style="color: red;">Address should be at least 5 characters long.</div>
+        <div *ngIf="customerAddress.errors?.['maxlength']" style="color: red;">Address cannot be more than 50 characters long.</div>
+      </div>
+
+
+
+      <input type="password" placeholder="Password" name="customerPassword" required ngModel #customerPassword="ngModel"
+        pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,}" minlength="8" maxlength="13" />
+      <div *ngIf="customerPassword.invalid && (customerPassword.dirty || customerPassword.touched)">
+        <div *ngIf="customerPassword.errors?.['required']" style="color: red;">Password is required.</div>
+        <div *ngIf="customerPassword.errors?.['minlength']" style="color: red;">Password should be at least 8 characters long.</div>
+        
+      </div>
+      <button type="submit" class="signupButton" [disabled]="!signupForm.value">Signup</button>
+    </form>
+    </div>
+    </div>
+
+    <app-footer></app-footer>

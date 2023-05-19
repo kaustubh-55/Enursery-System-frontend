@@ -1,0 +1,19 @@
+.bgImg {
+  width: 100%;
+  height: 90%;
+}
+
+.showNow {
+  width: 160px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  height: 55px;
+  border-radius: 10px;
+  background-color: #ffc0cb;
+}
+
+.sidebar {
+  margin-top: 150px;
+}

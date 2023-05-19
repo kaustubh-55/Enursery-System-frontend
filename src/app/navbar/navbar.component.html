@@ -1,0 +1,68 @@
+<nav
+  class="navbar navbar-dark navbar-expand-lg"
+  style="background-color: #007f00"
+>
+  <div class="container-fluid">
+    <h2>
+      <a routerLink="/">
+        <span style="color: white" class="p-1">E-</span
+        ><span class="text-warning">Nursery</span>
+      </a>
+    </h2>
+  
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div *ngIf="isAdminLogin == true; else elseBlock">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item menus">
+            <a class="nav-link active" type="button" (click)="logout()"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+      <ng-template #elseBlock>
+        <div *ngIf="isLogin == true; else elseBlock">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item menus">
+              <a class="nav-link active" routerLink="/cart">Cart</a>
+            </li>
+            <li class="nav-item menus">
+              <a class="nav-link active" routerLink="/orders">Order History</a>
+            </li>
+            <li class="nav-item menus">
+              <a class="nav-link active" routerLink="/update-customer"
+                >Update Details</a
+              >
+            </li>
+            <li class="nav-item menus logout">
+              <a class="nav-link active" type="button" (click)="logout()"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+        <ng-template #elseBlock> 
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item menus">
+              <a class="nav-link active" routerLink="/login">Login</a>
+            </li>
+            <li class="nav-item signup">
+              <a class="nav-link active" routerLink="/signup">Signup</a>
+            </li>
+          </ul>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</nav>

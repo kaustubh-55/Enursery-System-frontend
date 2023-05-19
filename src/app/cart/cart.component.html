@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="container mt-4  mb-4">
+    <h3 class="mb-4">Your Cart Items</h3>
+    <hr>
+    <div class="row" *ngIf="cart.length > 0; else emptyCart">
+        <div class="col-md-4 mb-4" *ngFor="let item of cart">
+            <div class="card">
+                <img class="card-img-top" src="{{item.productImg}}" alt="product image" />
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.productName }}</h5>
+                    <p class="card-text">Price: {{ item.productName }}</p>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary" type="button" (click)="decrement(item)"
+                                style="height: 35px;">-</button>
+                        </div>
+                        <input type="number" class="form-control" [(ngModel)]="item.productQuantity"
+                            [ngModelOptions]="{standalone: true}" style="border-radius: 20px;">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" (click)="increment(item)"
+                                style="height: 35px;">+</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger" (click)="removeFromCart(item)">Remove from Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div *ngIf="isLogin==true; else elseBlock">
+                <a type="button" class="btn  float-right bg-success text-white" routerLink="/place-order">Place
+                    Order</a>
+            </div>
+            <ng-template #elseBlock>
+                <button type="button" disabled class="btn  float-right bg-success text-white"
+                    routerLink="/place-order">Place
+                    Order</button>
+                <span class="text-warning "> Please Login to Continue</span>
+            </ng-template>
+            <br>
+            <button class="btn btn-secondary float-right " (click)="clearCart()">Clear Cart</button>
+        </div>
+    </div>
+    <ng-template #emptyCart>
+        <h3 class="text-center">Your cart is empty.</h3>
+        <div class="col-12 sidebar text-center ">
+            <a type="button" class="showNow mt-2 text-center" routerLink="/products">Shop Now</a>
+        </div>
+    </ng-template>
+</div>
+
+<app-footer></app-footer>

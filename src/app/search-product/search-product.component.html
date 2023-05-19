@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Search Product Here</label
+        >
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="ex:Rose"
+        />
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <button
+        (click)="search()"
+        class="btn btn-warning"
+        style="margin-top: 30px"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+</div>

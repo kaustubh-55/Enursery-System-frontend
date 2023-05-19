@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+
+<div class="signupDiv">
+    <div class="signupForm">
+        <form #signupForm="ngForm" (ngSubmit)="onSignup(signupForm)" novalidate>
+            <h1>Update Details</h1>
+            <input type="hidden" [value]="customer.customerId" name="customerId" [(ngModel)]="customer.customerId">
+            <input type="text" placeholder="Username" name="customerName" required [(ngModel)]="customer.customerName"
+                pattern="[a-zA-Z]+" minlength="4" maxlength="50" [value]="customer.customerName" />
+            <div
+                *ngIf="customer.customerName.invalid && (customer.customerName.dirty || customer.customerName.touched)">
+                <div *ngIf="customer.customerName.errors?.['required']">Username is required.</div>
+                <div *ngIf="customer.customerName.errors?.['pattern']">Username should contain only alphabets.</div>
+                <div *ngIf="customer.customerName.errors?.['minlength']">Username should be at least 4 characters long.
+                </div>
+                <div *ngIf="customer.customerName.errors?.['maxlength']">Username cannot be more than 50 characters
+                    long.</div>
+            </div>
+
+            <input type="hidden" name="customerPassword" required [(ngModel)]="customer.customerPassword" />
+
+
+            <input type="email" placeholder="Email" name="customerEmail" required [(ngModel)]="customer.customerEmail"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
+            <div
+                *ngIf="customer.customerEmail.invalid && (customer.customerEmail.dirty || customer.customerEmail.touched)">
+                <div *ngIf="customer.customerEmail.errors?.['required']">Email is required.</div>
+                <div *ngIf="customer.customerEmail.errors?.['pattern']">Please enter a valid email.</div>
+            </div>
+
+            <input type="text" placeholder="Phone number" name="customerPhone" required
+                [(ngModel)]="customer.customerPhone" pattern="/^[7-9][0-9]{0,8}$/" minlength="10" maxlength="10" />
+            <div
+                *ngIf="customer.customerPhone.invalid && (customer.customerPhone.dirty || customer.customerPhone.touched)">
+                <div *ngIf="customer.customerPhone.errors?.['required']">phoneNumber is required.</div>
+                <div *ngIf="customer.customerPhone.errors?.['pattern']">phoneNumber should contain only numeric
+                    characters.</div>
+                <div *ngIf="customer.customerPhone.errors?.['minlength']">phoneNumber should be a 10 digit long.</div>
+                <div *ngIf="customer.customerPhone.errors?.['maxlength']">phoneNumber should be a 10 digit long..</div>
+            </div>
+
+            <textarea name="customerAddress" placeholder="customerAddress" required
+                [(ngModel)]="customer.customerAddress" minlength="5" maxlength="50"></textarea>
+            <div
+                *ngIf="customer.customerAddress.invalid && (customer.customerAddress.dirty || customer.customerAddress.touched)">
+                <div *ngIf="customer.customerAddress.errors?.['required']">Address is required.</div>
+                <div *ngIf="customer.customerAddress.errors?.['minlength']">Address should be at least 5 characters
+                    long.</div>
+                <div *ngIf="customer.customerAddress.errors?.['maxlength']">Address cannot be more than 50 characters
+                    long.</div>
+            </div>
+
+            <button type="submit" class="signupButton" [disabled]="!signupForm.value">Update</button>
+        </form>

@@ -1,0 +1,90 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-3">
+      <app-admin-navbar></app-admin-navbar>
+    </div>
+    <div class="col-sm-9">
+      <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+            <th>Product Category Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of productCategories">
+            <td>{{ p.productCategoryName }}</td>
+            <td>
+              <a
+                class="btn btn-sm btn-danger m-1"
+                role="button"
+                (click)="deleteProductCategory(p.productCategoryId)"
+                >Delete</a
+              >
+              <a
+                class="btn btn-sm btn-success"
+                role="button"
+                (click)="updateProductCategory(p)"
+                >Update</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="container">
+        <form *ngIf="isAddMode">
+          <div class="mb-3">
+            <div class="col-sm-6">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Add Product category</label
+              >
+              <input
+                type="text"
+                placeholder="Category Name"
+                name="productCategoryName"
+                [(ngModel)]="productCategoryName"
+                class="form-control"
+                id="exampleFormControlInput1"
+              />
+            </div>
+          </div>
+          <button (click)="addCategory()" class="btn btn-sm btn-warning m-1">
+            Add Category
+          </button>
+          <button (click)="toggleMode()" class="btn btn-sm btn-danger">
+            Cancel
+          </button>
+        </form>
+
+        <form *ngIf="!isAddMode">
+          <div class="col-sm-6">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Add Product category</label
+            >
+            <input
+              type="text"
+              placeholder="Category Name"
+              name="productCategoryName"
+              [(ngModel)]="productCategoryName"
+              class="form-control"
+              id="exampleFormControlInput1"
+            />
+          </div>
+          <input
+            type="hidden"
+            name="productCategoryId"
+            [(ngModel)]="productCategoryId"
+          />
+          <br />
+          <button (click)="updateCategory()" class="btn btn-sm btn-warning m-1">
+            Update Category
+          </button>
+          <button (click)="toggleMode()" class="btn btn-sm btn-danger">
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

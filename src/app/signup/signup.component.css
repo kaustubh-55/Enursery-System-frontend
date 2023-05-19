@@ -1,0 +1,153 @@
+.signupDiv {
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 110px;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.signupForm {
+    text-align: center;
+    
+}
+
+.signupForm h1 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.signupForm input {
+    width: 80%;
+    margin-bottom: 1.5rem;
+    height: 35px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.signupForm textarea {
+    width: 80%;
+    margin-bottom: 1.5rem;
+    height: 45px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    font-size: 1rem;
+    padding-top: 1rem;
+}
+
+.signupForm button {
+    width: 80%;
+    height: 40px;
+    margin-bottom: 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #FF735C;
+    font-size: 1rem;
+}
+
+.signupForm .option1 span {
+    margin-left: 5px;
+    color: teal;
+}
+
+
+@media(max-width:700px) {
+
+
+    .signupDiv {
+        margin-top: 5rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 110px;
+        width: 90%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .signupForm {
+        text-align: center;
+    }
+
+    .signupForm h1 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .signupForm input {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        height: 35px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(206, 187, 187);
+        text-align: center;
+        font-size: 1rem;
+    }
+
+
+    .signupForm textarea {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        height: 45px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(206, 187, 187);
+        text-align: center;
+        font-size: 1rem;
+        padding-top: 1rem;
+    }
+
+    .signupForm button {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 1rem;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: #FF69B4;
+        font-size: 1rem;
+    }
+
+    .signupForm .option1 span {
+        margin-left: 5px;
+        color: teal;
+    }
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 50px;
+  }
+.cart {
+        margin-right: 25px;
+      }
+      
+    nav {
+        padding: 8px 8px;
+      }
+
+      form{
+        background-color: #d8d8d8;
+        border-radius: 15px;
+        padding:5px;
+        margin: auto;
+        
+      }
+      .login
+      {
+        margin-right:30px;
+      }

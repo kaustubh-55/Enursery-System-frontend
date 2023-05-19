@@ -1,0 +1,64 @@
+
+<nav
+  class="navbar navbar-dark navbar-expand-lg"
+  style="background-color: #007f00"
+>
+  <div class="container-fluid">
+    <h2>
+      <a routerLink="/">
+        <span style="color: white" class="p-1">E-</span
+        ><span class="text-warning">Nursery</span>
+      </a>
+    </h2>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item menus signup">
+        <a class="nav-link active" routerLink="/signup">Signup</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="loginDiv">
+  <div class="loginForm">
+    <form id="login" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+      <h1>Login</h1>
+
+      <input
+        type="email"
+        placeholder="Email"
+        name="email"
+        required
+        [(ngModel)]="email"
+      />
+      
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        required
+        [(ngModel)]="password"
+      />
+
+      <button type="submit">Login</button>
+
+      <div class="option2">
+        <div>Dont have an account !!<a routerLink="/signup">Register</a></div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>
